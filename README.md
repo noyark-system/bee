@@ -9,6 +9,11 @@
 * 确保根据分工需求进行代码工作，在写代码前，务必update，并且推送代码需要合理的写推送信息
 * 写完代码推送务必在群中说明已经推送
 * 禁止修改其他人的模块，防止冲突和覆盖
+
+3. git及ide
+
+* 使用idea 非社区版进行项目
+* idea连接git教程https://www.cnblogs.com/java-maowei/p/5950930.html
 ```
 noyark system @gulesberry using springboot
         v 0.0.1 README
