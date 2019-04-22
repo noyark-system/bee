@@ -14,6 +14,10 @@
 
 * 使用idea 非社区版进行项目
 * idea连接git教程https://www.cnblogs.com/java-maowei/p/5950930.html
+
+4. 项目企划
+
+* 参见网站开发黄皮策划书
 ```
 noyark system @gulesberry using springboot
         v 0.0.1 README
