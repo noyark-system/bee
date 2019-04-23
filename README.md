@@ -19,6 +19,15 @@
 
 * 参见网站开发黄皮策划书
 
+5. 文件介绍
+
+* sql文件boot_server_前缀
+    * follow 关于关注和粉丝的表设计
+    * level 关于等级的表设计
+    * plate 关于板块，模块的表设计
+    * posts 关于帖子的表设计
+    * user 关于用户的表设计
+
 # 网站开发黄皮书 V0.3
 
 ## 论坛模块设计架构案 V0.3
@@ -283,6 +292,10 @@
 
 ![update](design_update.jpg)
 
+> 关于实体类的设计
+
+
+
 > 业务层
 
 * 异常分析
@@ -306,7 +319,6 @@
         * UserNotFoundException
         * AccessDeniedException 
         
-
 ```
 noyark system @gulesberry using springboot
         v 0.0.2README
