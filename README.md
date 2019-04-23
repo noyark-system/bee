@@ -250,11 +250,36 @@
      
     */
     ```
-> 权限组
+4. 权限组
 
-> 信息修改
+5. 信息修改
 
 ![update](design_update.jpg)
+
+> 业务层
+
+* 异常分析
+    * 注册
+        * DuplicatedUsernameException
+        * InsertException
+    * 登录
+        * UserNotFoundException <不存在/isDelete==1>
+        * PasswordNotCorrectException
+    * 修改密码
+        * UserNotFoundException
+        * PasswordNotCorrectException
+        * UpdateException
+    * 修改其他信息
+        * UserNotFoundException
+        * UpdateException
+    * 修改头像
+        * UserNotFoundException
+        * UpdateException
+    * 通过uid获取用户信息
+        * UserNotFoundException
+        * AccessDeniedException 
+        
+
 ```
 noyark system @gulesberry using springboot
         v 0.0.2README
