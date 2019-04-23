@@ -1,4 +1,7 @@
 --用户
+
+-- @author kevin.J
+-- @author magiclu
 CREATE DATABASE boot_server CHARACTER SET = UTF8;
 
 USE boot_server;

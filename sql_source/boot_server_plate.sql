@@ -1,5 +1,8 @@
 -- 板块和模块的划分
 
+-- @author magiclu
+-- @author kevin.J
+
 CREATE DATABASE boot_server CHARACTER SET = UTF8;
 
 USE boot_server;
