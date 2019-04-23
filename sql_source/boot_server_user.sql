@@ -12,7 +12,7 @@ CREATE TABLE user (
   gender INT COMMENT '0-男，1-女',
   phone VARCHAR (20) COMMENT '手机号码',
   salt CHAR(36) COMMENT '盐值',
-  level VARCHAR(20) COMMENT '用户等级',
+  level_id INT COMMENT '用户等级',--在level表里对应
   address VARCHAR(50) COMMENT '用户的居住地',
   birthday DATETIME COMMENT '用户的出生年月日',
   created_user VARCHAR(20) COMMENT '创建者',
