@@ -217,7 +217,17 @@
     /**
       SQL语句针对主页面的帖子查询和个人页面的帖子
       查询，以及个人信息的查询
-    */
+    */  
+    -- 内容 
+    SELECT gender FROM user WHERE uid = #{uid}
+    -- 帖子
+      -- 如果用户是本帖楼主
+      SELECT title,module_id,created_time,modfied_time,content.is_delete FROM post WHERE 
+      -- 如果用户的是回复
+      SELECT content,is_delete,created_time FROM reply WHERE uid = #{uid};
+      SELECT title FROM post WHERE sid = (SELECT sid FROM post_relation WHERE reply_id = (SELECT reply_id FROM reply WHERE uid = #{uid}));
+    -- 个人主页关注和粉丝处理参见上文
+  
     ```
 3. 处理等级的部分
     * 数据结构
@@ -249,6 +259,23 @@
      SQL语句针对用户的level_id与等级称号的关联
      
     */
+    SELECT 
+       level_name
+    FROM 
+       level 
+    WHERE
+       level_id = 
+    (
+    SELECT 
+       level_id 
+    FROM 
+       user
+    WHERE 
+       uid = #{uid}
+    );
+
+  
+ 
     ```
 4. 权限组
 

@@ -26,7 +26,7 @@ CREATE TABLE post(
 /*
 一个帖子对应多个回复
  */
-CREATE TABLE relation(
+CREATE TABLE post_relation(
   sid INT COMMENT '帖子的id',
   reply_id INT COMMENT '回复的id'
 );
@@ -37,7 +37,7 @@ CREATE TABLE reply(
   reply_id INT  AUTO_INCREMENT PRIMARY KEY NOT NULL COMMENT '回复的id',
   content TEXT COMMENT '回复的内容',
   uid INT COMMENT '用户的id',
-  create_time DATETIME COMMENT '创建时间',
+  created_time DATETIME COMMENT '创建时间',
   is_delete INT COMMENT '是否被删除',
 );
 

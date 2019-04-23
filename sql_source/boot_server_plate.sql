@@ -22,7 +22,7 @@ CREATE TABLE plate(
 
 -- 关系表
 
-CREATE TABLE relation(
+CREATE TABLE model_relation(
   pid INT COMMENT '板块的id',
   mid INT COMMENT '模块的id',
 );
