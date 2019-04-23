@@ -18,6 +18,29 @@
 4. 项目企划
 
 * 参见网站开发黄皮策划书
+
+# 网站开发黄皮书 V0.3
+
+## 论坛模块设计架构案 V0.3
+
+#### 作者: 卢昶存，贾凯闻，李向杰，黄福鑫，何锐
+------
+> 主页结构图
+
+![master](design_main.jpg)
+1. 个人主页
+![user](design_userlist.jpg)
+2. 板块列表
+![user_plate](design_plate.jpg)
+3. 帖子
+![post](design_post.jpg)
+
+> 用户行为树
+1. 用户
+
+2. 管理员
+
+    
 ```
 noyark system @gulesberry using springboot
         v 0.0.1 README
