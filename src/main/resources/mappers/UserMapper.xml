@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="net.noyark.www.web.gulesberry.springboot.outcode.mapper.UserMapper">
+
+    <!--插入用户至数据库-->
+    <!-- void insertUser(User user);-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="uid">
+        INSERT INTO user(
+            username,password,
+            salt,nickname,address,
+            avatar,email,
+            phone,gender,
+            birthday,level_id,
+            is_delete,is_admin
+            ) VALUES(
+                #{username},#{password},
+                #{salt},#{nickname},#{address},
+                #{avatar},#{email},
+                #{phone},#{gender},
+                #{birthday},#{levelId},
+                #{isDelete},#{isAdmin}
+            )
+    </insert>
+
+    <!--根据uid查询用户信息-->
+    <!--void findByUid(Integer uid);-->
+    <select id="findByUid" resultType="net.noyark.www.web.gulesberry.springboot.outcode.entity.User">
+        SELECT
+            *
+        FROM
+            user
+        WHERE
+            uid=#{uid}
+    </select>
+
+</mapper>
