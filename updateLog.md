@@ -9,3 +9,5 @@
     * User添加了永久封禁的常量
 - Magiclu
     * 更新了实体类Plate,Module,补充了Post实体类
+- MagicLu
+    * 更新了业务异常，关于登录，注册，修改，查询用户信息的异常
