@@ -18,11 +18,11 @@
                 #{username},#{password},
                 #{nickname},#{gender},
                 #{phone},#{salt},#{levelId},
-                #{address},#{birthday},#{is_delete},
-                #{avatar},#{email},#{is_admin},#{is_ban},
-                #{ban_date},#{created_user},
-                #{created_time},#{modified_user},
-                #{modified_time}
+                #{address},#{birthday},#{isDelete},
+                #{avatar},#{email},#{isAdmin},#{isBan},
+                #{banDate},#{createdUser},
+                #{createdTime},#{modifiedUser},
+                #{modifiedTime}
             )
     </insert>
 
@@ -37,6 +37,8 @@
             uid=#{uid}
     </select>
 
+    <!---->
+    <!---->
     <select id="findByUsername" resultType="net.noyark.www.web.gulesberry.springboot.outcode.entity.User">
         SELECT
             uid,is_delete AS isDelete

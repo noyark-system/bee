@@ -20,7 +20,7 @@ public class UserServiceTestCase {
     @Test
     public void signup() {
         User user = new User();
-        user.setUsername("fff");
+        user.setUsername("EEE");
         user.setPassword("123");
         user.setNickname("nickname123");
         user.setAddress("luluRoad");
