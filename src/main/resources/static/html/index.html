@@ -11,15 +11,21 @@
         @import url("../bootstrap/css/bootstrap-theme.min.css");
         @import url("../bootstrap/css/bootstrap.min.css");
     </style>
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/zzsc.css">
+    <link rel="stylesheet" type="text/css" href="../bootstrap/css/ripple.css">
     <script src="../bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 </head>
 <style type="text/css">
+    @font-face{
+        font-family: 'font_noyark';
+        src:url('../bootstrap/fonts/glyphicons-halflings-regular.ttf') format('ttf');
+    }
     body{
         background-image: url("../image/index_background.jpg") ;
         background-repeat: no-repeat;
         background-size: cover;
         color: gainsboro;
-        height: 1900px;
+        height: 2100px;
     }
     #white_space{
         background-color: gainsboro;
@@ -29,7 +35,7 @@
     }
     #header{
         background-color: deepskyblue;
-        height: 100px;
+        height: 200px;
         width: 925px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
@@ -54,23 +60,54 @@
         height: 2px;
         width: 925px;
     }
-    #header>div>input{
-        background-color: #66afe9;
-        width: 70px;
-        height: 50px;
+    #header>div>a{
+        background-color: deepskyblue;
+        width: 90px;
+        height: 70px;
         float: left;
+        font-size: 20px;
+        border: 0;
     }
     #header_div{
         position: absolute;
-        left: 100px;
+        left: 40px;
+        top: 130px;
+
+    }
+    #image{
+        background-image: url("../image/forum.png");
+        background-size: 100px;
+        height: 100px;
+        width: 100px;
+    }
+    #forum_logo{
+        position: absolute;
+        left: 40px;
+        top: 20px;
+    }
+    #forum_logo>div{
+        float: left;
+    }
+    #title{
+        position: absolute;
+        left: 150px;
+        top: 10px;
+        font-size: 50px;
+        width: 400px;
+        font-family: 'font_noyark';
+        color: white;
     }
 </style>
 <body>
 <form action="" method="">
     <div id="out_space">
         <header id="header">
+            <div id="forum_logo">
+                <div id="image"></div>
+                <div id="title"><strong>GULES FORUM</strong></div>
+            </div>
             <div id="header_div">
-                <input class="btn" type="button" name="forum" value="论坛">
+                <a class="btn btn-info btn-lg ripple" type="button" name="forum" value="论坛">论坛</a>
             </div>
         </header>
         <article id = "white_space"></article>
