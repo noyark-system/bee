@@ -9,7 +9,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
-import java.security.DigestException;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,10 +22,10 @@ public class UserServiceImpl implements UserService
     public void signup(User user) throws DuplicatedUsernameException, InsertException
     {
         User result = userMapper.findByUsername(user.getUsername());
-        if(result!=null||result.getIsDelete()==0){
+        if(result!=null&&result.getIsDelete()==0)
+        {
             throw new DuplicatedUsernameException("用户名已存在,请重新输入");
         }
-
 
         //密码加密
         String salt = UUID.randomUUID().toString();
@@ -45,6 +44,7 @@ public class UserServiceImpl implements UserService
         user.setModifiedUser(user.getUsername());
 
         Integer row = userMapper.insertUser(user);
+        System.err.println(row);
 
         if(row!=1){
             throw new InsertException("注册发生未知错误:数据库插入异常,请联系管理员");

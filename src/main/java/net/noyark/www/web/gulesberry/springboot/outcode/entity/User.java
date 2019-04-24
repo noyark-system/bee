@@ -67,6 +67,10 @@ public class User extends BaseEntity{
      */
     private String avatar;
     /**
+     * 用户邮箱
+     */
+    private String email;
+    /**
      * 是否为管理员，后期划分权限组
      */
     private Integer isAdmin;
@@ -79,10 +83,7 @@ public class User extends BaseEntity{
      * FORERVER_BAN
      */
     private Date banDate;
-    /**
-     * 用户邮箱
-     */
-    private String email;
+
 
 
     public Integer getUid() {

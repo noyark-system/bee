@@ -7,18 +7,22 @@
     <insert id="insertUser" useGeneratedKeys="true" keyProperty="uid">
         INSERT INTO user(
             username,password,
-            salt,nickname,address,
-            avatar,email,
-            phone,gender,
-            birthday,level_id,
-            is_delete,is_admin
+            nickname,gender,
+            phone,salt,level_id,
+            address,birthday,is_delete,
+            avatar,email,is_admin,is_ban,
+            ban_date,created_user,
+            created_time,modified_user,
+            modified_time
             ) VALUES(
                 #{username},#{password},
-                #{salt},#{nickname},#{address},
-                #{avatar},#{email},
-                #{phone},#{gender},
-                #{birthday},#{levelId},
-                #{isDelete},#{isAdmin}
+                #{nickname},#{gender},
+                #{phone},#{salt},#{levelId},
+                #{address},#{birthday},#{is_delete},
+                #{avatar},#{email},#{is_admin},#{is_ban},
+                #{ban_date},#{created_user},
+                #{created_time},#{modified_user},
+                #{modified_time}
             )
     </insert>
 
