@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="TemplateDataLanguageMappings">
-    <file url="jar://$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.0/mybatis-3.5.0.jar!/org/apache/ibatis/builder/xml/mybatis-3-config.dtd" dialect="DTD" />
     <file url="PROJECT" dialect="XML" />
   </component>
 </project>
