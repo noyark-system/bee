@@ -2,22 +2,86 @@ package net.noyark.www.web.gulesberry.springboot.outcode.entity;
 
 import java.util.Date;
 
+/**
+ * 该类代表了User实体类，一个实体类将代表着数据库交互和业务
+ * 逻辑的唯一对象实体，其中信息依据数据库。
+ *
+ * 另外，本类实现了序列化接口，由实体基类继承
+ *
+ * @author Kevin. J
+ * @author Magiclu550
+ */
 public class User extends BaseEntity{
+    /**
+     * 永久封禁
+     */
+    public static final int FOREVER_BAN = -1;
+
+    /**
+     * 用户的id码，用于标示对象
+     */
     private Integer uid;
+    /**
+     * 用户的名字
+     */
     private String username;
+    /**
+     * 用户的昵称
+     */
     private String nickname;
+    /**
+     * 用户的密码，默认以加盐和加密处理
+     */
     private String password;
+    /**
+     * 用户的性别
+      */
     private Integer gender;
+    /**
+     * 用户的电话
+     */
     private String phone;
+    /**
+     * 用户的盐值，用于加密密码
+     */
     private String salt;
+    /**
+     * 用户的等级，会由此查询到等级信息
+     */
     private Integer levelId;
+    /**
+     * 用户的地址
+     */
     private String address;
+    /**
+     * 用户的生日
+     */
     private Date birthday;
+    /**
+     * 用户是否被删除，事实上，信息即使被删除
+     * 也是被保留的
+     */
     private Integer isDelete;
+    /**
+     * 头像信息
+     */
     private String avatar;
+    /**
+     * 是否为管理员，后期划分权限组
+     */
     private Integer isAdmin;
+    /**
+     * 是否被封禁，封禁者则不能访问部分信息
+     */
     private Integer isBan;
+    /**
+     * 封禁的最大期限，永久封禁则写入常量
+     * FORERVER_BAN
+     */
     private Date banDate;
+    /**
+     * 用户邮箱
+     */
     private String email;
 
 
