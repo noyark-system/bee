@@ -71,7 +71,7 @@
 * 用户篇
 1. 用户的信息
     * 数据结构
-    ```sql
+    ```mysql
     CREATE TABLE user (
       uid INT AUTO_INCREMENT PRIMARY KEY NOT NULL COMMENT '用户的id',
       username VARCHAR(20) NOT NULL UNIQUE COMMENT '用户的名字',
@@ -80,7 +80,7 @@
       gender INT COMMENT '0-男，1-女',
       phone VARCHAR (20) COMMENT '手机号码',
       salt CHAR(36) COMMENT '盐值',
-      level_id INT COMMENT '用户等级',--在level表里对应
+      level_id INT COMMENT '用户等级',-- 在level表里对应
       address VARCHAR(50) COMMENT '用户的居住地',
       birthday DATETIME COMMENT '用户的出生年月日',
       created_user VARCHAR(20) COMMENT '创建者',
@@ -121,7 +121,7 @@
     FROM
       following_list
     WHERE 
-        uid = #{uid}
+        uid = #{uid};
     
     
     -- 关注uid查粉丝
@@ -131,9 +131,9 @@
     FROM
            following_list
     WHERE 
-        following_user = #{uid}
+        following_user = #{uid};
     
-    --计算关注的人，及他的粉丝量
+    -- 计算关注的人，及他的粉丝量
     
     -- 关注
     
@@ -142,9 +142,9 @@
     FROM
         following_list
     WHERE
-        uid = #{uid}
+        uid = #{uid};
     
-    --粉丝
+    -- 粉丝
     
     SELECT 
         COUNT (uid)
