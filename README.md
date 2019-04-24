@@ -1,3 +1,4 @@
+![license](https://img.shields.io/badge/License-GPL-blue.svg)(LICENSE)
 # 对于项目的规范须知
 
 1. 数据库部分
