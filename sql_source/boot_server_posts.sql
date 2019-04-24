@@ -38,6 +38,6 @@ CREATE TABLE reply(
   content TEXT COMMENT '回复的内容',
   uid INT COMMENT '用户的id',
   created_time DATETIME COMMENT '创建时间',
-  is_delete INT COMMENT '是否被删除',
+  is_delete INT COMMENT '是否被删除'
 );
 

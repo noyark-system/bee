@@ -96,17 +96,17 @@
     ```
 2. 处理关注和粉丝部分
     - 数据结构设计
-    ```sql
+    ```mysql
 
     CREATE TABLE following_list(
       uid INT COMMENT '关注者',
-      followed_user INT '被关注者',
+      followed_user INT COMMENT '被关注者'
     );
 
     ```
     * sql语句设计
 
-    ```sql
+    ```mysql
     -- 当用户关注时候的操作
     INSERT 
       INTO 
@@ -158,7 +158,7 @@
 
 - 数据结构
     * 帖子主表
-    ```sql
+    ```mysql
     CREATE TABLE post(
       sid INT AUTO_INCREMENT PRIMARY KEY NOT NULL COMMENT '帖子的id号',
       uid INT NOT NULL COMMENT '发帖的用户的id，即楼主',
@@ -174,7 +174,7 @@
     );
     ```
     * 关系表
-    ```sql
+    ```mysql
     /*
     一个帖子对应多个回复
      */
@@ -184,17 +184,17 @@
     );
     ```
     * 回复表
-    ```sql
+    ```mysql
     CREATE TABLE reply(
          reply_id INT  AUTO_INCREMENT PRIMARY KEY NOT NULL COMMENT '回复的id',
          content TEXT COMMENT '回复的内容',
          uid INT COMMENT '用户的id',
          create_time DATETIME COMMENT '创建时间',
-         is_delete INT COMMENT '是否被删除',
+         is_delete INT COMMENT '是否被删除'
        );
     ```
     * 板块表
-    ```sql
+    ```mysql
     CREATE TABLE plate(
       pid INT AUTO_INCREMENT PRIMARY KEY NOT NULL COMMENT '板块的id',
       plate_name VARCHAR (20) COMMENT '板块名字',
@@ -207,14 +207,14 @@
     );
     ```
     * 板块_模块的关系表
-    ```sql
+    ```mysql
     CREATE TABLE relation(
       pid INT COMMENT '板块的id',
-      mid INT COMMENT '模块的id',
+      mid INT COMMENT '模块的id'
     );
     ```
     * 模块表
-    ```sql
+    ```mysql
     CREATE TABLE model(
       mid INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
       model_name VARCHAR (20),
@@ -227,16 +227,16 @@
     );
     ```
     * sql语句
-    ```sql
+    ```mysql
     /**
       SQL语句针对主页面的帖子查询和个人页面的帖子
       查询，以及个人信息的查询
     */  
     -- 内容 
-    SELECT gender FROM user WHERE uid = #{uid}
+    SELECT gender FROM user WHERE uid = #{uid};
     -- 帖子
       -- 如果用户是本帖楼主
-      SELECT title,module_id,created_time,modfied_time,content.is_delete FROM post WHERE 
+      SELECT title,module_id,created_time,modfied_time,content.is_delete FROM post WHERE uid = #{uid};
       -- 如果用户的是回复
       SELECT content,is_delete,created_time FROM reply WHERE uid = #{uid};
       SELECT title FROM post WHERE sid = (SELECT sid FROM post_relation WHERE reply_id = (SELECT reply_id FROM reply WHERE uid = #{uid}));
@@ -245,7 +245,7 @@
     ```
 3. 处理等级的部分
     * 数据结构
-    ```sql
+    ```mysql
     CREATE TABLE level(
       level_id INT PRIMARY KEY AUTO_INCREMENT UNIQUE NOT NULL COMMENT '等级的id',
       level_name VARCHAR (20) COMMENT '等级的称号'
@@ -268,7 +268,7 @@
                              (9,'坛圣');
     ```
     * sql语句
-    ```sql
+    ```mysql
     /**
      SQL语句针对用户的level_id与等级称号的关联
      
