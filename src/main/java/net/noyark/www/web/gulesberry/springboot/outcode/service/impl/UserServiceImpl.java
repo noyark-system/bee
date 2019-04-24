@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService
 
             for (int i = 0;i < 5;i++)
             {
-                str = DigestUtils.md5DigestAsHex(str.getBytes()).toString();
+                str = DigestUtils.md5DigestAsHex(str.getBytes());
             }
 
             return str;
