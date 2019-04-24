@@ -7,3 +7,5 @@
     * 添加了Post类
     * 补充了一部分注释
     * User添加了永久封禁的常量
+- Magiclu
+    * 更新了实体类Plate,Module,补充了Post实体类
