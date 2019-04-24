@@ -7,7 +7,7 @@ CREATE TABLE user (
   uid INT AUTO_INCREMENT PRIMARY KEY COMMENT '用户的id',
   username VARCHAR(20) NOT NULL COMMENT '用户的名字',
   nickname VARCHAR(20) NOT NULL COMMENT '用户的昵称',
-  password VARCHAR(20) NOT NULL COMMENT '密码',
+  password CHAR(36) NOT NULL COMMENT '密码',
   gender INT COMMENT '0-男，1-女',
   phone VARCHAR (20) COMMENT '手机号码',
   salt CHAR(36) COMMENT '盐值',

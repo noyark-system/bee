@@ -1,8 +1,7 @@
 package net.noyark.www.web.gulesberry.springboot.outcode;
 
 import net.noyark.www.web.gulesberry.springboot.outcode.entity.User;
-import net.noyark.www.web.gulesberry.springboot.outcode.mapper.UserMapper;
-
+import net.noyark.www.web.gulesberry.springboot.outcode.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,17 +12,16 @@ import java.util.Date;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class UserMapperTestCase {
+public class UserServiceTestCase {
 
     @Autowired
-    UserMapper mapper;
+    UserService userService;
 
     @Test
-    public void insert() {
+    public void signup() {
         User user = new User();
-        user.setUsername("ccc");
+        user.setUsername("eee");
         user.setPassword("123");
-        user.setSalt("3333");
         user.setNickname("nickname123");
         user.setAddress("luluRoad");
         user.setAvatar("/aa/ab");
@@ -31,23 +29,8 @@ public class UserMapperTestCase {
         user.setGender(0);
         user.setBirthday(new Date());
         user.setLevelId(0);
-        user.setIsDelete(0);
         user.setIsAdmin(0);
-        Integer rows = mapper.insertUser(user);
-        System.out.println(rows);
+        userService.signup(user);
     }
 
-    @Test
-    public void findByUid(){
-        Integer uid = 1;
-        User user = mapper.findByUid(uid);
-        System.out.println(user);
-    }
-
-    @Test
-    public void findByUsername(){
-        String Username = "ccc";
-        User user = mapper.findByUsername(Username);
-        System.err.println(user);
-    }
 }

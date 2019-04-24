@@ -23,4 +23,6 @@ public interface UserMapper
      * @return 返回用户实体
      */
     User findByUid(Integer uid);
+
+    User findByUsername(String username);
 }

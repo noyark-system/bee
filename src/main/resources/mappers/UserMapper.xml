@@ -26,11 +26,20 @@
     <!--void findByUid(Integer uid);-->
     <select id="findByUid" resultType="net.noyark.www.web.gulesberry.springboot.outcode.entity.User">
         SELECT
-            *
+            uid,is_delete AS isDelete
         FROM
             user
         WHERE
             uid=#{uid}
+    </select>
+
+    <select id="findByUsername" resultType="net.noyark.www.web.gulesberry.springboot.outcode.entity.User">
+        SELECT
+            uid,is_delete AS isDelete
+        FROM
+            user
+        WHERE
+            username=#{username}
     </select>
 
 </mapper>
