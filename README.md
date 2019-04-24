@@ -81,6 +81,7 @@
       password VARCHAR(20) NOT NULL COMMENT '密码',
       gender INT COMMENT '0-男，1-女',
       phone VARCHAR (20) COMMENT '手机号码',
+      email VARCHAR(40) COMMENT '邮箱字段',
       salt CHAR(36) COMMENT '盐值',
       level_id INT COMMENT '用户等级',-- 在level表里对应
       address VARCHAR(50) COMMENT '用户的居住地',

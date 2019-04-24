@@ -18,7 +18,6 @@ CREATE TABLE post(
   created_time DATETIME COMMENT '创建时间',
   modified_time  DATETIME COMMENT '修改时间',
   is_delete INT COMMENT '是否被删除，0-未删除，1-已经删除',
-  create_time INT COMMENT '创建的时间',
   content TEXT COMMENT '楼主帖子的内容'
 );
 
