@@ -1,4 +1,4 @@
-package net.noyark.www.web.gulesberry.springboot.outcode.forum.conf;
+package net.noyark.www.web.gulesberry.springboot.outcode.conf;
 
 import net.noyark.www.web.gulesberry.springboot.outcode.forum.interceptor.LoginIntercepter;
 import org.springframework.context.annotation.Configuration;

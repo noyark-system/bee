@@ -1,4 +1,4 @@
-package net.noyark.www.web.gulesberry.springboot.outcode.forum.interceptor;
+package net.noyark.www.web.gulesberry.springboot.outcode.interceptor;
 
 
 import org.springframework.web.servlet.HandlerInterceptor;

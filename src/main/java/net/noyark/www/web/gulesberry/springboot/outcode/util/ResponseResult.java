@@ -1,4 +1,4 @@
-package net.noyark.www.web.gulesberry.springboot.outcode.forum.util;
+package net.noyark.www.web.gulesberry.springboot.outcode.util;
 
 /**
  * 本类是返回给ajax处理的响应类，用于返回对应的信息和状态码，
