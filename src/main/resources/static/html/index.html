@@ -145,11 +145,16 @@
         #_start>li>a{
             background-color: white;
             height: 10px;
-            width: 100px;
-            padding-left: 30px;
+            width: 300px;
+            padding-left: 50px;
+            padding-right: 50px;
+            color: #2b669a;
         }
-        #_start>li{
+        #_start{
             position: relative;
+        }
+        #first{
+            background-image: url("");
         }
     </style>
     <script type="text/javascript">
@@ -157,8 +162,7 @@
         $(function(){
             $("#other").click(function () {
                 if(count%2!=0){
-                    $("#_start").html("<li><a>start</a></li>");
-                    $("#_start").css({"pos":""},"");
+                    $("#_start").html("<li><div id='first'></div><a>网站主页</a></li>");
                 }else{
                     $("#_start").html("");
                 }
