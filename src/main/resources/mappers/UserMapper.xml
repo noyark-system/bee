@@ -41,7 +41,11 @@
     <!---->
     <select id="findByUsername" resultType="net.noyark.www.web.gulesberry.springboot.outcode.entity.User">
         SELECT
-            uid,is_delete AS isDelete
+            uid,
+            username,
+            password,
+            salt,
+            is_delete AS isDelete
         FROM
             user
         WHERE
