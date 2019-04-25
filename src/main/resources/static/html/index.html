@@ -39,7 +39,6 @@
         width: 925px;
         border-top-left-radius: 5px;
         border-top-right-radius: 5px;
-
     }
     #out_space{
         position: relative;
@@ -60,9 +59,9 @@
         height: 2px;
         width: 925px;
     }
-    #header>div>a{
+    #header>#header_div>a{
         background-color: deepskyblue;
-        width: 90px;
+        width: 100px;
         height: 70px;
         float: left;
         font-size: 20px;
@@ -85,9 +84,6 @@
         left: 40px;
         top: 20px;
     }
-    #forum_logo>div{
-        float: left;
-    }
     #title{
         position: absolute;
         left: 150px;
@@ -97,6 +93,12 @@
         font-family: 'font_noyark';
         color: white;
     }
+    #user{
+        position: absolute;
+        left: 750px;
+        top: 135px;
+    }
+
 </style>
 <body>
 <form action="" method="">
@@ -106,8 +108,19 @@
                 <div id="image"></div>
                 <div id="title"><strong>GULES FORUM</strong></div>
             </div>
+            <!-- 当注册或者登录以后，替换为个人主页选项 -->
+            <div id="user">
+                <img src="../image/login.ico">
+                <a>登录</a>
+                <img src="../image/reg.ico">
+                <a>注册</a>
+                <img src="../image/what.ico">
+                <a>?</a>
+            </div>
             <div id="header_div">
-                <a class="btn btn-info btn-lg ripple" type="button" name="forum" value="论坛">论坛</a>
+                <a class="btn btn-info btn-lg ripple" type="button" href="#">论坛</a>
+                <a class="btn btn-info btn-lg ripple" type="button" href="#">光荣榜</a>
+                <a class="btn btn-info btn-lg ripple" type="button" href="#">网站主页</a>
             </div>
         </header>
         <article id = "white_space"></article>
