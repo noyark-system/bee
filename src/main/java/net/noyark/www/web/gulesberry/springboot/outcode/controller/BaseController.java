@@ -1,9 +1,6 @@
 package net.noyark.www.web.gulesberry.springboot.outcode.controller;
 
-import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.DuplicatedUsernameException;
-import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.InsertException;
-import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.ServiceException;
-import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.UserNotFoundException;
+import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.*;
 import net.noyark.www.web.gulesberry.springboot.outcode.util.ResponseResult;
 import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.stereotype.Controller;
@@ -69,10 +66,15 @@ public class BaseController {
         if(e instanceof DuplicatedUsernameException) {
             //数据库插入异常:用户名已存在
             rr.setState(INSERT_ERROR);
-        }else if (e instanceof UserNotFoundException){
-           /*
-            * 数据库查询异常:查询不到用户
-            */
+        }else if (e instanceof UserNotFoundException) {
+            /*
+             * 数据库查询异常:查询不到用户
+             */
+            rr.setState(FIND_ERROR);
+        }else if (e instanceof PasswordNotCorrectException){
+            /*
+             * 数据库查询异常:密码错误
+             */
             rr.setState(FIND_ERROR);
         }else if(e instanceof InsertException){
             /*

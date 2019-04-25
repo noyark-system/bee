@@ -30,7 +30,14 @@ public class UserServiceTestCase {
         user.setBirthday(new Date());
         user.setLevelId(0);
         user.setIsAdmin(0);
-        userService.signup(user);
+        userService.signUp(user);
     }
 
+    @Test
+    public void signIn() {
+        String username = "handler";
+        String password = "123456";
+        User result = userService.signIn(username,password);
+        System.err.println("result : " + result);
+    }
 }

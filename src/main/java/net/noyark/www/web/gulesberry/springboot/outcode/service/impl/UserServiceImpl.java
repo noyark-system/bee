@@ -5,6 +5,8 @@ import net.noyark.www.web.gulesberry.springboot.outcode.mapper.UserMapper;
 import net.noyark.www.web.gulesberry.springboot.outcode.service.UserService;
 import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.DuplicatedUsernameException;
 import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.InsertException;
+import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.PasswordNotCorrectException;
+import net.noyark.www.web.gulesberry.springboot.outcode.service.ex.UserNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -19,7 +21,7 @@ public class UserServiceImpl implements UserService
     UserMapper userMapper;
 
     @Override
-    public void signup(User user) throws DuplicatedUsernameException, InsertException {
+    public void signUp(User user) throws DuplicatedUsernameException, InsertException {
         User result = userMapper.findByUsername(user.getUsername());
         if (result == null||result.getIsDelete()==1)
         {
@@ -51,17 +53,43 @@ public class UserServiceImpl implements UserService
 
     }
 
-        private String getMd5Password(String password,String salt)
-        {
-            String str = salt + password + salt;
+    @Override
+    public User signIn(String username, String password) throws UserNotFoundException, PasswordNotCorrectException {
+        System.out.println("signIn");
+        User result = userMapper.findByUsername(username);
 
-            for (int i = 0;i < 5;i++)
-            {
-                str = DigestUtils.md5DigestAsHex(str.getBytes());
-            }
-
-            return str;
+        if(result==null||result.getIsDelete()==1){
+            throw new UserNotFoundException("用户名或密码错误");
         }
+
+        String resultSalt = result.getSalt();
+        String md5 = getMd5Password(password,resultSalt);
+
+        if(!result.getPassword().equals(md5)){
+            throw new PasswordNotCorrectException("用户名或密码错误");
+        }
+
+        result.setIsDelete(null);
+        result.setSalt(null);
+        result.setPassword(null);
+
+        return result;
+    }
+
+
+    //-------------------private method (for this class)-----------------
+
+    private String getMd5Password(String password,String salt)
+    {
+        String str = salt + password + salt;
+
+        for (int i = 0;i < 5;i++)
+        {
+            str = DigestUtils.md5DigestAsHex(str.getBytes());
+        }
+
+        return str;
+    }
 
 
 
