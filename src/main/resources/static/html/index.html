@@ -86,7 +86,7 @@
             text-decoration:none
         }
         a{
-            color: white;
+            color: rgb(255, 255, 255);
         }
         #header_div{
             position: absolute;
@@ -123,13 +123,13 @@
         #up{
             height: 32px;
             width: 32px;
-            background-image: url("../image/up.ico");
+            background-image: url("../image/up_2.ico");
             background-repeat: no-repeat;
         }
         #down{
             height: 32px;
             width: 32px;
-            background-image: url("../image/down.ico");
+            background-image: url("../image/down_2.ico");
             background-repeat: no-repeat;
         }
         #up_down{
@@ -142,42 +142,59 @@
             left: 5px;
             padding-top: 15px;
         }
-        #_start>li>a{
+        #_start>li{
+       
+        
             background-color: white;
-            height: 10px;
-            width: 300px;
-            padding-left: 50px;
-            padding-right: 50px;
-            color: #2b669a;
+            height: 30px;
+            width: 150px;
+            padding-top: 10px;
         }
         #_start{
             position: relative;
+            top: 50px;
+        }
+        #_start>li>a{
+            color: #2b669a;
+            
         }
         #first{
-            background-image: url("");
+           height:10px;
+           width: 10px;
         }
     </style>
+    <!--  -->
     <script type="text/javascript">
-        var count = 0;
+        var count = 1;
         $(function(){
+            var up = $("#up_down").css("top");
             $("#other").click(function () {
                 if(count%2!=0){
-                    $("#_start").html("<li><div id='first'></div><a>网站主页</a></li>");
+                    $("#_start").html("<li><img src='../image/home.ico' id='first'><a>网站主页</a></li>");
                 }else{
                     $("#_start").html("");
                 }
                 count++;
             })
+            $("#other").mouseout(function(){
+                setTimeout(function(){
+                    $("#_start").html("");
+                },10000);
+            });
+            $("body").bind('mousewheel',function(event,delta){
+                console.log(delta);
+                $("#up_down").css("top",up+delta);
+                //$("down").css();
+            });
         });
-
     </script>
 </head>
 
 <body>
 <form action="" method="">
     <div id="up_down">
-        <a class="btn btn-default" id="down" href="#bottom"></a>
         <a class="btn btn-default" id="up"></a>
+        <a class="btn btn-default" id="down" href="#bottom"></a>
     </div>
 
     <div id="out_space">
