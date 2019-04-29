@@ -15,6 +15,7 @@
     </style>
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
     <script src="../bootstrap/js/jquery-3.3.1.min.js"></script>
+    <script src="../jquery-mousewheel-master/jquery.mousewheel.min.js" type="text/javascript"></script>
     <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
     <script src="../bootstrap/js/bootstrap.min.js"></script>
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
@@ -36,7 +37,6 @@
             background-size: cover;
             color: gainsboro;
             height: 2100px;
-            width: 3000px;
         }
         #white_space{
             background-color: gainsboro;
@@ -143,8 +143,6 @@
             padding-top: 15px;
         }
         #_start>li{
-       
-        
             background-color: white;
             height: 30px;
             width: 150px;
@@ -167,7 +165,8 @@
     <script type="text/javascript">
         var count = 1;
         $(function(){
-            var up = $("#up_down").css("top");
+            var startHeight = document.body.clientHeight;
+            var startWidth = document.body.clientWidth;
             $("#other").click(function () {
                 if(count%2!=0){
                     $("#_start").html("<li><img src='../image/home.ico' id='first'><a>网站主页</a></li>");
@@ -181,11 +180,27 @@
                     $("#_start").html("");
                 },10000);
             });
-            $("body").bind('mousewheel',function(event,delta){
-                console.log(delta);
-                $("#up_down").css("top",up+delta);
-                //$("down").css();
+            //箭头定位部分，正在完善
+            $("body").bind('mousewheel',function(event){
+                var up = $("#up_down").css("top").replace("px","");
+                var move = event.deltaY*event.deltaFactor;//移动的坐标值
+                var top = $("#out_space").css("top").replace("px","");
+                var bottom =  parseInt(top)+parseInt($("#bottom").css("height").replace("px",""))+parseInt($("#white_space").css("height").replace("px",""));
+                if(top-up<0){
+                    up = top;
+                }else if(bottom-up>0){
+                    up = bottom;
+                }
+
+                //$("#up_down").css("top",up+move+"px");
             });
+            //等比缩放
+            $(window).resize(function (){
+                //当浏览器大小变化时
+                //$("*").css("height",parseInt($("*").css("height"))*parseInt(startHeight)/parseInt($(document.body).height()));
+               
+            });
+
         });
     </script>
 </head>
@@ -203,15 +218,7 @@
                 <div id="image"></div>
                 <div id="title"><strong>GULES FORUM</strong></div>
             </div>
-            <!-- 当注册或者登录以后，替换为个人主页选项 -->
-            <div id="user">
-                <img src="../image/login.ico"> >
-                <a>登录</a>
-                <img src="../image/reg.ico">
-                <a>注册</a>
-                <img src="../image/what.ico">
-                <a>?</a>
-            </div>
+            
             <div class="collapse navbar-collapse bs-js-navbar-scrollspy" id="header_div">
                 <ul id="list" class="nav navbar-nav">
                     <li><a href="#" id="ul_head" class="btn btn-lg ripple" data-toggle="popover" title="go to forum">FORUM</a></li>
@@ -226,6 +233,15 @@
                     </li>
                 </ul>
             </div>
+            <!-- 当注册或者登录以后，替换为个人主页选项 -->
+            <div id="user">
+                    <img src="../image/login.ico"> >
+                    <a>登录</a>
+                    <img src="../image/reg.ico">
+                    <a>注册</a>
+                    <img src="../image/what.ico">
+                    <a>?</a>
+                </div>
         </header>
         <article id = "white_space">
 
